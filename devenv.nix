@@ -6,9 +6,11 @@
   claude.code.enable = true;
 
   # https://devenv.sh/packages/
-  packages = [ 
-    pkgs.git 
+  packages = [
+    pkgs.git
     pkgs.tmux
+    pkgs.tmuxinator
+    pkgs.cocogitto
   ];
 
   # https://devenv.sh/languages/
@@ -37,8 +39,7 @@
 
   # https://devenv.sh/basics/
   enterShell = ''
-    hello         # Run scripts directly
-    git --version # Use packages
+    cog install-hook --all --overwrite 2>/dev/null || true
   '';
 
   # https://devenv.sh/tasks/
